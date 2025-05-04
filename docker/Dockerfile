@@ -8,7 +8,10 @@ FROM debian:bookworm
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=America/Los_Angeles
 ENV LANGUAGE=en_US:en
-ENV LC_ALL=C
+ENV LANG=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+ENV HOME=/root
+ENV STEAMAPPID=294420
 
 RUN apt update && apt install -y \
 	software-properties-common \
@@ -20,6 +23,9 @@ RUN apt update && apt install -y \
 	gnupg \
 	screen \
 	wget \
+	locales \
+	&& sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
+	&& locale-gen \
 	&& apt autoremove --purge -y && apt clean
 
 RUN NODE_MAJOR=22 \
