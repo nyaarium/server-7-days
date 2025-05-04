@@ -1,10 +1,6 @@
 FROM debian:bookworm
 
 
-# Adjust the game version here
-ENV STEAMAPPID=294420
-
-
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=America/Los_Angeles
 ENV LANGUAGE=en_US:en
