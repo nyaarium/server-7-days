@@ -27,7 +27,7 @@ done
 if [ "$success" != "true" ]; then
     echo "App did not stop gracefully after 20 seconds"
     echo "Sending SIGTERM and waiting up to 5 seconds..."
-    docker kill --signal=SIGTERM "$APP_NAME" --time 5 || true
+    docker stop -t 5 "$APP_NAME" || true
 fi
 
 sleep 1
