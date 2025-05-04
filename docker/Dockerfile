@@ -2,7 +2,7 @@ FROM debian:bookworm
 
 
 # Adjust the game version here
-# ENV GAME_VERSION="xxx"
+ENV STEAMAPPID=294420
 
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -11,7 +11,6 @@ ENV LANGUAGE=en_US:en
 ENV LANG=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 ENV HOME=/root
-ENV STEAMAPPID=294420
 
 RUN apt update && apt install -y \
 	software-properties-common \
