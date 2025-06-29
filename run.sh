@@ -9,7 +9,7 @@ mkdir -p data/saves data/mods data/logs
 
 ./stop.sh
 
-docker build -t $APP_NAME docker/
+docker build -t $APP_NAME -f docker/Dockerfile .
 
 if [ "${APP_SERVICE:-}" = "true" ]; then
     DETACHED="-d"

@@ -51,7 +51,7 @@ RUN cd /usr/local/bin/ \
 ############################
 # Game server
 
-COPY install.sh /root/install.sh
+COPY docker/install.sh /root/install.sh
 RUN chmod +x /root/install.sh \
 	&& /root/install.sh \
 	&& rm /root/install.sh
@@ -60,7 +60,7 @@ RUN chmod +x /root/install.sh \
 ############################
 # Monitor server
 
-COPY monitor/ /monitor/
+COPY docker/monitor/ /monitor/
 RUN cd /monitor \
 	&& npm i express helmet moment moment-timezone
 
@@ -68,7 +68,7 @@ RUN cd /monitor \
 ############################
 # Docker server
 
-COPY start-docker-server.sh /app/start-docker-server.sh
+COPY docker/start-docker-server.sh /app/start-docker-server.sh
 RUN chmod +x /app/start-docker-server.sh
 
 WORKDIR /app
